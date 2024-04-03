@@ -106,6 +106,9 @@ for (let key of keys) {
     } else if (value === "backspace") {
       input = input.slice(0, -1);
       display_input.innerHTML = CleanInput(input);
+      if (input === "" && display_output.innerHTML !== "") { // Verificar si el input está vacío y hay un resultado en el output
+        display_output.innerHTML = ""; // Borrar el contenido del output
+      }
     } else if (value === "=" || value === "=")   {
       let result = eval(PrepareInput(input));
       display_output.innerHTML = CleanOutput(result);
